@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-xs-8 col-md-6 text-left">标题</div>
                 <div class="col-xs-4 col-md-2">修改时间</div>
-                <div class="col-md-2 hidden-xs hidden-sm">类型</div>
+                
                 <div class="col-md-2 hidden-xs hidden-sm">大小</div>
             </div>
         </div>
@@ -19,7 +19,7 @@
                         <a href="{{url_for('front.index',path=data['path'])}}">
                             <div class="col-xs-8 col-md-6 text-left cut"><i class="fa fa-folder-o"></i>{{data['name']}}</div>
                             <div class="col-xs-4 col-md-2">{{data['lastModtime']}}</div>
-                            <div class="col-md-2 hidden-xs hidden-sm">{{data['type']}}</div>
+                            
                             <div class="col-md-2 hidden-xs hidden-sm">{{data['size']}}</div>
                         </a>
                     </div>
@@ -32,13 +32,13 @@
                                 {%else%}
                                     <div class="col-xs-8 col-md-6 text-left cut">{{ macros.get_ico(file_ico(data)) }}{{data['name']}}</div>
                                     <div class="col-xs-4 col-md-2">{{data['lastModtime']}}</div>
-                                    <div class="col-md-2 hidden-xs hidden-sm">{{data['type']}}</div>
+                                    
                                     <div class="col-md-2 hidden-xs hidden-sm">{{data['size']}}</div>
                                 {%endif%}
                             {%else%}
                                 <div class="col-xs-8 col-md-6 text-left cut">{{ macros.get_ico(file_ico(data)) }}{{data['name']}}</div>
                                 <div class="col-xs-4 col-md-2">{{data['lastModtime']}}</div>
-                                <div class="col-md-2 hidden-xs hidden-sm">{{data['type']}}</div>
+                                
                                 <div class="col-md-2 hidden-xs hidden-sm">{{data['size']}}</div>
                             {%endif%}
                         </a>
