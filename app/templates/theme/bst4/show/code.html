@@ -7,10 +7,10 @@
     }
 </style>
 <div class="container">
-<pre id="editor" >{{content|safe}}</pre>
+{{content|safe}}
 
     <!-- 固定标签 -->
-    <div class="form-horizontal">
+    <!-- <div class="form-horizontal">
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">
                     <i class="fa fa-share-alt" aria-hidden="true"></i>分享地址
@@ -32,7 +32,7 @@
             <input id="use_outer" class="form-control" type="text" value="{{url}}" />
             <a class="input-group-addon" onclick="copyUrl('use_outer')">点击复制</a>
         </div>
-    </div>
+    </div> -->
     <a href="{{url}}" class="fab-fixed"><i class="fa fa-download fa-3x" aria-hidden="true"></i></a>
 </div>
 <script src="https://cdn.staticfile.org/ace/1.4.2/ace.js"></script>
