@@ -7,7 +7,7 @@
     }
 </style>
 <div class="layui-container">
-{{content|safe}}
+  <p class="text1" >{{content|safe}}</p>
 
 <div class="layui-form layui-form-pane">
   <div class="layui-form-item" pane>
@@ -35,7 +35,7 @@
 </div>
     <a href="{{url}}" class="fab-fixed"><i class="fa fa-download fa-3x" aria-hidden="true"></i></a>
 </div>
-<script src="https://cdn.staticfile.org/ace/1.4.2/ace.js"></script>
+<!-- <script src="https://cdn.staticfile.org/ace/1.4.2/ace.js"></script>
 <script src="https://cdn.staticfile.org/ace/1.4.2/ext-language_tools.js"></script>
 <script>
     var editor = ace.edit("editor");
@@ -50,5 +50,5 @@
         enableLiveAutocompletion: true,
         maxLines: Infinity
     });
-</script>
+</script> -->
 {%endblock content%}
