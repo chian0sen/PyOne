@@ -50,7 +50,10 @@
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="/static/theme/layui.js"></script>
     <script type="text/javascript">
+layui.use('layer ', function(){
+var layer = layui.layer ;
 
+});
     function py_search() {
         layui.use('layer', function(){
           var layer = layui.layer;
