@@ -237,7 +237,7 @@ def GetToken(Token_file='token.json',user=GetConfig('default_pan')):
 def GetAppUrl(user):
     od_type=get_value('od_type',user)
     if od_type=='nocn' or od_type is None or od_type==False:
-        return 'https://graph.microsoft.com/'
+        return get_value('app_url',user)
     else:
         # return 'https://microsoftgraph.chinacloudapi.cn/'
         return get_value('app_url',user)
@@ -245,7 +245,7 @@ def GetAppUrl(user):
 
 def GetLoginUrl(client_id,redirect_uri,od_type='nocn'):
     if od_type=='nocn' or od_type is None or od_type==False:
-        return 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=code\
+        return 'https://login.partner.microsoftonline.cn/common/oauth2/authorize?response_type=code\
 &client_id={client_id}&redirect_uri={redirect_uri}&scope=offline_access%20Files.ReadWrite.All%20Files.ReadWrite'.format(client_id=client_id,redirect_uri=redirect_uri)
     else:
         return 'https://login.partner.microsoftonline.cn/common/oauth2/authorize?response_type=code\
@@ -254,7 +254,7 @@ def GetLoginUrl(client_id,redirect_uri,od_type='nocn'):
 
 def GetOAuthUrl(od_type):
     if od_type=='nocn' or od_type is None or od_type==False:
-        return 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+        return 'https://login.partner.microsoftonline.cn/common/oauth2/token'
     else:
         return 'https://login.partner.microsoftonline.cn/common/oauth2/token'
 
@@ -552,7 +552,7 @@ class GetItemThread(Thread):
                                     path=convert2unicode(parent_path+'/'+value['name'])
                                     # path=urllib.quote(convert2unicode(parent_path+'/'+value['name']))
                                     if od_type=='nocn' or od_type is None or od_type==False:
-                                        url=app_url+'v1.0/me/drive/root:{}:/children?expand=thumbnails'.format(path)
+                                        url=app_url+'drive/root:{}:/children?expand=thumbnails'.format(path)
                                     else:
                                         url=app_url+'_api/v2.0/me/drive/root:{}:/children?expand=thumbnails'.format(path)
                                     self.queue.put(dict(url=url,grandid=grandid+1,parent=item['id'],trytime=1))
@@ -588,7 +588,7 @@ class GetItemThread(Thread):
                                 path=convert2unicode(parent_path+'/'+value['name'])
                                 # path=urllib.quote(convert2unicode(parent_path+'/'+value['name']))
                                 if od_type=='nocn' or od_type is None or od_type==False:
-                                    url=app_url+'v1.0/me/drive/root:{}:/children?expand=thumbnails'.format(path)
+                                    url=app_url+'drive/root:{}:/children?expand=thumbnails'.format(path)
                                 else:
                                     url=app_url+'_api/v2.0/me/drive/root:{}:/children?expand=thumbnails'.format(path)
                                 self.queue.put(dict(url=url,grandid=grandid+1,parent=item['id'],trytime=1))
@@ -648,12 +648,12 @@ class GetItemThread(Thread):
         od_type=get_value('od_type',self.user)
         if path=='' or path=='/':
             if od_type=='nocn' or od_type is None or od_type==False:
-                url=app_url+u'v1.0/me/drive/root/'
+                url=app_url+u'drive/root/'
             else:
                 url=app_url+u'_api/v2.0/me/drive/root/'
         else:
             if od_type=='nocn' or od_type is None or od_type==False:
-                url=app_url+u'v1.0/me/drive/root:{}:/'.format(path)
+                url=app_url+u'drive/root:{}:/'.format(path)
             else:
                 url=app_url+u'_api/v2.0/me/drive/root:{}:/'.format(path)
         headers={'Authorization': 'Bearer {}'.format(token)}

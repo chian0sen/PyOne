@@ -8,7 +8,7 @@ def Dir(path=u'{}:/'.format(GetConfig('default_pan'))):
     InfoLogger().print_r('update {}\'s {} file'.format(user,n_path))
     if n_path=='/':
         if od_type=='nocn' or od_type is None or od_type==False:
-            BaseUrl=app_url+u'v1.0/me/drive/root/children?expand=thumbnails'
+            BaseUrl=app_url+u'drive/root/children?expand=thumbnails'
         else:
             BaseUrl=app_url+u'_api/v2.0/me/drive/root/children?expand=thumbnails'
         mon_db.items.remove({'user':user})
@@ -35,7 +35,7 @@ def Dir(path=u'{}:/'.format(GetConfig('default_pan'))):
             parent=parent_id
         n_path=urllib.quote(n_path.encode('utf-8'))
         if od_type=='nocn' or od_type is None or od_type==False:
-            BaseUrl=app_url+u'v1.0/me/drive/root:{}:/children?expand=thumbnails'.format(n_path)
+            BaseUrl=app_url+u'drive/root:{}:/children?expand=thumbnails'.format(n_path)
         else:
             BaseUrl=app_url+u'_api/v2.0/me/drive/root:{}:/children?expand=thumbnails'.format(n_path)
         queue=Queue()
@@ -134,7 +134,7 @@ def GetRootid(user=GetConfig('default_pan')):
         od_type=get_value('od_type',user)
         token=GetToken(user=user)
         if od_type=='nocn' or od_type is None or od_type==False:
-            url=app_url+u'v1.0/me/drive/root/'
+            url=app_url+u'drive/root/'
         else:
             url=app_url+u'_api/v2.0/me/drive/root/'
 
@@ -153,7 +153,7 @@ def FileExists(filename,user=GetConfig('default_pan')):
     headers={'Authorization':'bearer {}'.format(token),'Content-Type':'application/json'}
     headers.update(default_headers)
     if od_type=='nocn' or od_type is None or od_type==False:
-        search_url=app_url+"v1.0/me/drive/root/search(q='{}')".format(convert2unicode(filename))
+        search_url=app_url+"drive/root/search(q='{}')".format(convert2unicode(filename))
     else:
         search_url=app_url+"_api/v2.0/me/drive/root/search(q='{}')".format(convert2unicode(filename))
     r=browser.get(search_url,headers=headers,verify=False)

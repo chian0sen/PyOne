@@ -11,7 +11,7 @@ def _upload(filepath,remote_path,user=GetConfig('default_pan')): #remote_path li
     headers['Content-Type']='application/octet-stream'
     headers.update(default_headers)
     if od_type=='nocn' or od_type is None or od_type==False:
-        url=app_url+'v1.0/me/drive/root:{}:/content'.format(urllib.quote(convert2unicode(remote_path)))
+        url=app_url+'drive/root:{}:/content'.format(urllib.quote(convert2unicode(remote_path)))
     else:
         url=app_url+'_api/v2.0/me/drive/root:{}:/content'.format(urllib.quote(convert2unicode(remote_path)))
     timeCalc=TimeCalculator()
@@ -107,7 +107,7 @@ def CreateUploadSession(path,user=GetConfig('default_pan')):
     headers={'Authorization':'bearer {}'.format(token),'Content-Type':'application/json'}
     headers.update(default_headers)
     if od_type=='nocn' or od_type is None or od_type==False:
-        url=app_url+u'v1.0/me/drive/root:{}:/createUploadSession'.format(urllib.quote(convert2unicode(path)))
+        url=app_url+u'drive/root:{}:/createUploadSession'.format(urllib.quote(convert2unicode(path)))
     else:
         url=app_url+u'_api/v2.0/me/drive/root:{}:/createUploadSession'.format(urllib.quote(convert2unicode(path)))
     data={

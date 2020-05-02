@@ -30,7 +30,7 @@ def CreateFolder(folder_name,grand_path,user=GetConfig('default_pan')):
     token=GetToken(user=user)
     if grand_path=='' or grand_path is None or grand_path=='/':
         if od_type=='nocn' or od_type is None or od_type==False:
-            url=app_url+'v1.0/me/drive/root/children'
+            url=app_url+'drive/root/children'
         else:
             url=app_url+'_api/v2.0/me/drive/root/children'
         parent_id=''
