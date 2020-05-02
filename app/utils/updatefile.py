@@ -170,7 +170,7 @@ def FileInfo(fileid,user=GetConfig('default_pan')):
     headers={'Authorization':'bearer {}'.format(token),'Content-Type':'application/json'}
     headers.update(default_headers)
     if od_type=='nocn' or od_type is None or od_type==False:
-        search_url=app_url+"v1.0/me/drive/items/{}".format(fileid)
+        search_url=app_url+"drive/items/{}".format(fileid)
     else:
         search_url=app_url+"_api/v2.0/me/drive/items/{}".format(fileid)
     r=browser.get(search_url,headers=headers,verify=False)
