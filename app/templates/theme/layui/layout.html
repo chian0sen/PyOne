@@ -52,12 +52,6 @@
     <script type="text/javascript">
 
     function py_search() {
-
-      if(window.location.href=="")
-      {
-        layer.alert('请输入密码后搜索！');
-        return false;
-      }
         layui.use('layer', function(){
           var layer = layui.layer;
           layer.prompt(function(value, index, elem){
