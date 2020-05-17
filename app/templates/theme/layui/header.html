@@ -7,15 +7,13 @@
             {%endif%}
             {%endfor%}
         </ul>
-        {%if title!='访问受限'%}
-        <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
+        <ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right" id="search">
             <li class="layui-nav-item" lay-unselect="">
                 <button class="layui-btn layui-btn-sm" onclick="py_search();">
                     <i class="layui-icon">&#xe615;</i> 搜索
                 </button>
             </li>
         </ul>
-        {%endif%}
     </div>
     <br>
     <div class="layui-row">
