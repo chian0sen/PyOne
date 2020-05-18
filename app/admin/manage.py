@@ -28,8 +28,8 @@ def manage():
     else:
         order=request.cookies.get('admin_order') if request.cookies.get('admin_order') is not None else 'desc'
         order=order
-    resp,total = FetchData(path=path,page=page,per_page=50,sortby=sortby,order=order)
-    pagination=Pagination(query=None,page=page, per_page=50, total=total, items=None)
+    resp,total = FetchData(path=path,page=page,per_page=20,sortby=sortby,order=order)
+    pagination=Pagination(query=None,page=page, per_page=20, total=total, items=None)
     if path.split(':',1)[-1]=='/':
         path=':'.join([path.split(':',1)[0],''])
     resp=MakeResponse(render_template('admin/manage/manage.html',pagination=pagination,items=resp,path=path,sortby=sortby,order=order,cur_user=user,endpoint='admin.manage'))

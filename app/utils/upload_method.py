@@ -10,7 +10,7 @@ def CutText(msg,indent=15):
         new_msg=msg
     return new_msg
 
-def get_upload_tasks(page,per_page=50):
+def get_upload_tasks(page,per_page=20):
     tasks=mon_db.upload_queue.find({})\
                 .sort([('add_time',DESCENDING)])\
                 .limit(per_page).skip((page-1)*per_page)

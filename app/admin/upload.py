@@ -46,7 +46,7 @@ def UploadRPCserver():
     if action=='pagination':
         data={'code':1}
         total=get_upload_tasks_no()
-        pagination=Pagination(query=None,page=page, per_page=50, total=total, items=None)
+        pagination=Pagination(query=None,page=page, per_page=20, total=total, items=None)
         data['page']=page
         data['pages']=pagination.pages
         page_lists=[]
