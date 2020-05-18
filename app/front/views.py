@@ -73,7 +73,7 @@ def index(path=None):
     order=GetCookie(key='order',default=GetConfig('order_m'))
     action=request.args.get('action','download')
     token=request.args.get('token')
-    data,total = FetchData(path=path,page=page,per_page=50,sortby=sortby,order=order,action=action,dismiss=True)
+    data,total = FetchData(path=path,page=page,per_page=20,sortby=sortby,order=order,action=action,dismiss=True)
     #是否有密码
     password,_,cur=has_item(path,'.password')
     md5_p=md5(path)
@@ -113,7 +113,7 @@ def index(path=None):
     head,ext_d=GetHead(path)
     #参数
     all_image=False if sum([file_ico(i)!='image' for i in data])>0 else True
-    pagination=Pagination(query=None,page=page, per_page=50, total=total, items=None)
+    pagination=Pagination(query=None,page=page, per_page=20, total=total, items=None)
     if path.split(':',1)[-1]=='/':
         path=':'.join([path.split(':',1)[0],''])
     resp=MakeResponse(render_template('theme/{}/index.html'.format(GetConfig('theme'))
@@ -241,8 +241,8 @@ def find(key_word):
     sortby=request.args.get('sortby')
     order=request.args.get('order')
     action=request.args.get('action','download')
-    data,total=FetchData(path=key_word,page=page,per_page=50,sortby=sortby,order=order,dismiss=True,search_mode=True)
-    pagination=Pagination(query=None,page=page, per_page=50, total=total, items=None)
+    data,total=FetchData(path=key_word,page=page,per_page=20,sortby=sortby,order=order,dismiss=True,search_mode=True)
+    pagination=Pagination(query=None,page=page, per_page=20, total=total, items=None)
     if ajax=='yes':
         retdata={}
         retdata['code']=0

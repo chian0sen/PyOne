@@ -29,7 +29,7 @@ def GetTotal(path='{}:/'.format(GetConfig('default_pan'))):
 
 
 # @cache.memoize(timeout=60*5)
-def FetchData(path='{}:/'.format(GetConfig('default_pan')),page=1,per_page=50,sortby='lastModtime',order='desc',action=None,dismiss=False,search_mode=False):
+def FetchData(path='{}:/'.format(GetConfig('default_pan')),page=1,per_page=20,sortby='lastModtime',order='desc',action=None,dismiss=False,search_mode=False):
     balance=eval(GetConfig('balance'))
     if search_mode:
         show_secret=GetConfig('show_secret')
