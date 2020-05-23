@@ -24,14 +24,14 @@
 {% macro get_ico(type) %}
     {%if type=='image'%}
         <i class="fa fa-file-image-o"></i>
-        
-    {%else%}
-        {%if type=='ondemand_video'%}
+        {%elif type=='ondemand_video'%}
             <i class="fa fa-file-movie-o"></i>
+        {%elif type=='txttrack'%}
+            <i class="fa fa-file-text-o"></i>
     
         {%else%}
             <i class="fa fa-file"></i>
-        {%endif%}
+        
     {%endif%}
 {% endmacro %}
 
