@@ -2,7 +2,7 @@
 from header import *
 from upload import *
 
-def CutText(msg,indent=30):
+def CutText(msg,indent=100):
     if len(msg)>indent*2:
         skip_len=len(msg)-indent*2
         new_msg=msg[:indent]+'...'+msg[skip_len:]
