@@ -288,7 +288,7 @@ def file_ico(item):
         if ext in ['bmp','jpg','jpeg','png','gif']:
             return "image"
 
-        if ext in ['mp4','mkv','webm','avi','mpg', 'mpeg', 'rm', 'rmvb', 'mov', 'wmv', 'mkv', 'asf','flv']:
+        if ext in ['mp4','mkv','webm','avi','mpg', 'mpeg', 'rm', 'rmvb', 'mov', 'wmv', 'mkv', 'asf','flv','mts']:
             return "ondemand_video"
 
         if ext in ['ogg','mp3','wav']:
