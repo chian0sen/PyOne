@@ -288,11 +288,13 @@ def file_ico(item):
         if ext in ['bmp','jpg','jpeg','png','gif']:
             return "image"
 
-        if ext in ['mp4','mkv','webm','avi','mpg', 'mpeg', 'rm', 'rmvb', 'mov', 'wmv', 'mkv', 'asf']:
+        if ext in ['mp4','mkv','webm','avi','mpg', 'mpeg', 'rm', 'rmvb', 'mov', 'wmv', 'mkv', 'asf','flv']:
             return "ondemand_video"
 
         if ext in ['ogg','mp3','wav']:
             return "audiotrack"
+        if ext in ['txt']:
+            return "text"
 
         return "insert_drive_file"
     except:
