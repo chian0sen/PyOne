@@ -293,8 +293,7 @@ def file_ico(item):
 
         if ext in ['ogg','mp3','wav']:
             return "audiotrack"
-        if ext in ['txt']:
-            return "text"
+       
 
         return "insert_drive_file"
     except:
