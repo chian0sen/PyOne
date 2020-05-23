@@ -2,12 +2,12 @@
 from header import *
 from upload import *
 
-def CutText(msg,indent=15):
-    # if len(msg)>indent*2:
-    #     skip_len=len(msg)-indent*2
-    #     new_msg=msg[:indent]+'...'+msg[skip_len:]
-    # else:
-    #     new_msg=msg
+def CutText(msg,indent=30):
+    if len(msg)>indent*2:
+        skip_len=len(msg)-indent*2
+        new_msg=msg[:indent]+'...'+msg[skip_len:]
+    else:
+        new_msg=msg
     return new_msg
 
 def get_upload_tasks(page,per_page=20):
