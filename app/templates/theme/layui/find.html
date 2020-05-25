@@ -23,7 +23,7 @@ layui.use('table', function(){
   var table = layui.table;
     table.render({
     elem: '#filelist',
-    url: '/py_find/'+key_word+'?ajax=yes',
+    url: '/py_find/'+{key_word}+'?ajax=yes',
     loading:true,
     cols: [[ //表头
       {field: 'name', title: '标题', width:600, sort: true, fixed: 'left'}
