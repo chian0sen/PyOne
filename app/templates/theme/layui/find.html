@@ -3,7 +3,8 @@
 {%block content%}
 <div class="layui-container">
     <!-- 文件列表 -->
-    <table class="layui-table" lay-data="{url:'{{url_for('front.find',ajax="yes",key_word=key_word)}}', page:true,limit:20, id:'test'}" lay-filter="filelist">
+    <table class="layui-table" lay-filter="filelist"></table>
+    <!-- <table class="layui-table" lay-data="{url:'{{url_for('front.find',ajax="yes",key_word=key_word)}}', page:true,limit:20, id:'test'}" lay-filter="filelist">
       <thead>
         <tr>
           <th lay-data="{field: 'name', width:600, sort: true, fixed: 'left',unresize:false}">标题</th>
@@ -12,7 +13,7 @@
           <th lay-data="{field: 'size', sort: true,unresize:false}" class="layui-hide-xs", fixed: 'right'>大小</th>
         </tr>
       </thead>
-    </table>
+    </table> -->
 </div>
 {%endblock content%}
 
@@ -22,7 +23,14 @@ layui.use('table', function(){
   var table = layui.table;
     table.render({
     elem: '#filelist',
-    loading:true
+    url: '/py_find/'+key_word+'?ajax=yes',
+    loading:true,
+    cols: [[ //表头
+      {field: 'name', title: '标题', width:600, sort: true, fixed: 'left'}
+      ,{field: 'lastModtime', title: '修改时间', width:200}
+      ,{field: 'type', title: '类型', width:150, sort: true}
+      ,{field: 'size', title: '大小', width:80} 
+      ]]
     });
 });
 </script>
