@@ -60,7 +60,7 @@ def FetchData(path='{}:/'.format(GetConfig('default_pan')),page=1,per_page=20,so
             else:
                 resp.append(item)
         #total=len(resp)
-        total=query.count
+        total=mon_db.items.find({'name':re.compile(path)}).count()
         return resp,total
     path=urllib.unquote(path)
     resp=[]
