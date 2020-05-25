@@ -59,7 +59,8 @@ def FetchData(path='{}:/'.format(GetConfig('default_pan')),page=1,per_page=20,so
                     resp.append(item)
             else:
                 resp.append(item)
-        total=len(resp)
+        #total=len(resp)
+        total=query.count
         return resp,total
     path=urllib.unquote(path)
     resp=[]

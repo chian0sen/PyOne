@@ -248,7 +248,7 @@ def find(key_word):
         retdata={}
         retdata['code']=0
         retdata['msg']=""
-        # retdata['total']=total
+        retdata['count']=total
         retdata['data']=[]
         for d in data:
             info={}
