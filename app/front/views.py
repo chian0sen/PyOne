@@ -236,13 +236,14 @@ def redirect_file(user,fileid):
 @front.route('/py_find/<key_word>')
 def find(key_word):
     page=request.args.get('page',1,type=int)
+    limit=request.args.get('limit',1,type=int)
     ajax=request.args.get('ajax','no')
     image_mode=request.args.get('image_mode')
     sortby=request.args.get('sortby')
     order=request.args.get('order')
     action=request.args.get('action','download')
-    data,total=FetchData(path=key_word,page=page,per_page=20,sortby=sortby,order=order,dismiss=True,search_mode=True)
-    pagination=Pagination(query=None,page=page, per_page=20, total=total, items=None)
+    data,total=FetchData(path=key_word,page=page,per_page=limit,sortby=sortby,order=order,dismiss=True,search_mode=True)
+    pagination=Pagination(query=None,page=page, per_page=limit, total=total, items=None)
     if ajax=='yes':
         retdata={}
         retdata['code']=0
