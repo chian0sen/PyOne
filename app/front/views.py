@@ -241,8 +241,8 @@ def find(key_word):
     sortby=request.args.get('sortby')
     order=request.args.get('order')
     action=request.args.get('action','download')
-    data,total=FetchData(path=key_word,page=page,per_page=20,sortby=sortby,order=order,dismiss=True,search_mode=True)
-    pagination=Pagination(query=None,page=page, per_page=20, total=total, items=None)
+    data,total=FetchData(path=key_word,page=page,per_page=50,sortby=sortby,order=order,dismiss=True,search_mode=True)
+    pagination=Pagination(query=None,page=page, per_page=50, total=total, items=None)
     if ajax=='yes':
         retdata={}
         retdata['code']=0
