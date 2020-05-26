@@ -33,7 +33,8 @@ def FetchData(path='{}:/'.format(GetConfig('default_pan')),page=1,per_page=20,so
     balance=eval(GetConfig('balance'))
     if search_mode:
         show_secret=GetConfig('show_secret')
-        query=mon_db.items.find({'name':re.compile(path),'options':'i'})
+        # query=mon_db.items.find({'name':re.compile(path)})
+        query=mon_db.items.find({name:{$regex:re.compile(path),$options:"i"}})
         resp=[]
         data=query.limit(per_page).collation({"locale": "zh", 'numericOrdering':True})\
                 .sort([('order',ASCENDING)])\
