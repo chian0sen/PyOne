@@ -3,7 +3,7 @@
 {%block content%}
 <div class="layui-container">
     <!-- 文件列表 -->
-    <table class="layui-table" lay-data="{url:'{{url_for('front.find',ajax="yes",key_word=key_word)}}',limit:20, id:'test'}" lay-filter="filelist">
+    <table class="layui-table" lay-data="{url:'{{url_for('front.find',ajax="yes",key_word=key_word)}}', page:true,limit:20, id:'test'}" lay-filter="filelist">
       <thead>
         <tr>
           <th lay-data="{field: 'name', width:600, sort: true}">标题</th>
