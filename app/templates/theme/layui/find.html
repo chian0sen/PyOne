@@ -2,8 +2,8 @@
 
 {%block content%}
 <div class="layui-container">
-    <!-- 文件列表 -->
-    <table class="layui-table" lay-data="{url:'{{url_for('front.find',ajax="yes",key_word=key_word)}}', page:{ 
+  <!-- 文件列表 -->
+  <table class="layui-table" lay-data="{url:'{{url_for('front.find',ajax="yes",key_word=key_word)}}', page:{ 
       //支持传入 laypage 组件的所有参数（某些参数除外，如：jump/elem） - 详见文档
       layout: [ 'count','prev', 'page', 'next', 'skip'] //自定义分页布局
      //,curr: 5 //设定初始在第 5 页
@@ -11,26 +11,37 @@
      // ,first: false //不显示首页
      // ,last: false //不显示尾页
    },limit:20, id:'test'}" lay-filter="filelist">
-      <thead>
-        <tr>
-          <th lay-data="{field: 'name', width:600, sort: true}">标题</th>
-          <th lay-data="{field: 'lastModtime', width:200,sort: true,unresize:true}">修改时间</th>
-          <th lay-data="{field: 'type', width:150, sort: true,unresize:true}">类型</th>
-          <th lay-data="{field: 'size', sort: true,unresize:true}">大小</th>
-        </tr>
-      </thead>
-    </table>
+    <thead>
+      <tr>
+        <th lay-data="{field: 'name', width:600, sort: true}">标题</th>
+        <th lay-data="{field: 'lastModtime', width:200,sort: true,unresize:true}">修改时间</th>
+        <th lay-data="{field: 'type', width:150, sort: true,unresize:true}">类型</th>
+        <th lay-data="{field: 'size',width:170, sort: true,unresize:true}">大小</th>
+      </tr>
+    </thead>
+  </table>
 </div>
 {%endblock content%}
 
 {%block script%}
 <script>
-layui.use('table', function(){
-  var table = layui.table;
+  layui.use('table', function () {
+    var table = layui.table;
     table.render({
-    elem: '#filelist',
-    loading:true
+      elem: '#filelist',
+      loading: true
     });
-});
+  });
 </script>
+<style>
+  .layui-table-cell {
+    font-size: 14px;
+    padding: 0 5px;
+    height: auto;
+    overflow: visible;
+    text-overflow: inherit;
+    white-space: normal;
+    word-break: break-all;
+  }
+</style>
 {%endblock script%}
