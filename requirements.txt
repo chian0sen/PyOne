@@ -7,9 +7,10 @@ humanize
 python_dateutil
 requests
 markdown
-shelljob
+shelljob==0.5.7
 eventlet
-flask_caching
+werkzeug
+flask_caching==1.3.1
 flask_limiter
 Flask-And-Redis
 flask_script
