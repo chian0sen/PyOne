@@ -170,6 +170,7 @@ install_pip(){
     echo -e "${Blue}正在安装pip！${Font}"
     if [[ "${release}" = "centos" ]]; then
         yum install -y python-pip
+        python -m pip install --upgrade pip
         EXEC="$(command -v pip)"
         if [[ -z ${EXEC} ]]; then
         wget https://bootstrap.pypa.io/get-pip.py
